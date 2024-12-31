@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML to PDF</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">  
+    <style>
+        /* General styling for better visibility in PDF */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #f8f9fa !important;
+            border-bottom: 2px solid #dee2e6;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            color: #495057 !important;
+        }
+        .container {
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .table {
+            width: 100%;
+            border: 1px solid #dee2e6;
+        }
+        .table th, .table td {
+            text-align: left;
+            padding: 10px;
+            border: 1px solid #dee2e6;
+        }
+        .table-striped-columns tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .shadow-lg {
+            text-align: center;
+            background-color: #e9ecef;
+            padding: 20px;
+            margin-top: 30px;
+            border: 1px solid #ced4da;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #343a40;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="container-fluid">
+        <nav class="navbar">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1 text-center" style="text-align: center;">HTML TO PDF</span>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Table Section -->
+    <div class="container p-5" style="background-color: #fff8dc;">
+        <h2 class="text-center mb-4" style="color: #6c757d; text-align: center;">Student Details</h2>
+        <table class="table table-striped-columns shadow p-3 mb-5 bg-white rounded">
+            <thead>
+                <tr>
+                    <th scope="col">Sr No</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Father Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in student_objs %}  
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.father_name }}</td>
+                    <td>{{ student.address }}</td>
+                    <td>{{ student.age }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer -->
+    <div class="shadow-lg rounded mt-5">
+        <h1>The End</h1>
+    </div>
+
+    <script src="/static/js/bootstrap.bundle.min.js"></script>    
+</body>
+</html>
